@@ -12,14 +12,14 @@ public class Day01Solver_Tests {
   [Fact]
   public void IsCorrectOnSample() {
     var solver = new Solver(Path.Join(dataDirectory, "sample.data"));
-    Assert.Equal(24000, solver.SolvePart1());
-    Assert.Equal(45000, solver.SolvePart2());
+    Assert.Equal(new Solution<int>(24000), solver.SolvePart1());
+    Assert.Equal(new Solution<int>(45000), solver.SolvePart2());
   }
 
   [Fact]
   public void IsCorrectOnActual() {
     var solver = new Solver(Path.Join(dataDirectory, "actual.data"));
-    Assert.Equal(68787, solver.SolvePart1());
-    Assert.Equal(198041, solver.SolvePart2());
+    Assert.Equal(new Solution<int>(68787), solver.SolvePart1());
+    Assert.Equal(new Solution<int>(198041), solver.SolvePart2());
   }
 }

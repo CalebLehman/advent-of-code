@@ -110,13 +110,13 @@ public class Day02Solver : ISolver {
     }
   }
 
-  public int SolvePart1() {
+  public ISolution SolvePart1() {
     var rounds = this.ParseOurInterpretation();
-    return rounds.Select(round => round.GetScore()).Sum();
+    return new Solution<int>(rounds.Select(round => round.GetScore()).Sum());
   }
 
-  public int SolvePart2() {
+  public ISolution SolvePart2() {
     var rounds = this.ParseElfInterpretation();
-    return rounds.Select(round => round.GetScore()).Sum();
+    return new Solution<int>(rounds.Select(round => round.GetScore()).Sum());
   }
 }

@@ -21,19 +21,19 @@ public class Day01Solver : ISolver {
     }
   }
 
-  public int SolvePart1() {
+  public ISolution SolvePart1() {
     var calories = this.ParseInput();
 
     calories.Sort();
     calories.Reverse();
-    return calories[0];
+    return new Solution<int>(calories[0]);
   }
 
-  public int SolvePart2() {
+  public ISolution SolvePart2() {
     var calories = this.ParseInput();
 
     calories.Sort();
     calories.Reverse();
-    return calories.GetRange(0, 3).Sum();
+    return new Solution<int>(calories.GetRange(0, 3).Sum());
   }
 }

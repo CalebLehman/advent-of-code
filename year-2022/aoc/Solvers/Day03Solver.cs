@@ -42,19 +42,19 @@ public class Day03Solver : ISolver {
     return sharedBadges;
   }
 
-  public int SolvePart1() {
-    return this.Parse()
+  public ISolution SolvePart1() {
+    return new Solution<int>(this.Parse()
       .Select(rucksack => rucksack.GetSharedItems().Select(Day03Solver.GetItemPriority).Sum())
-      .Sum();
+      .Sum());
   }
 
-  public int SolvePart2() {
+  public ISolution SolvePart2() {
     var rucksacks = this.Parse();
     if (rucksacks.Count() % 3 != 0) throw new UnableToParseInputException(this.inputFile);
 
-    return Enumerable.Range(0, rucksacks.Count() / 3)
+    return new Solution<int>(Enumerable.Range(0, rucksacks.Count() / 3)
       .Select(i => Day03Solver.GetSharedBadges(rucksacks.GetRange(i*3, 3)))
       .Select(badges => badges.Select(Day03Solver.GetItemPriority).Sum())
-      .Sum();
+      .Sum());
   }
 }

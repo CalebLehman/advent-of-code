@@ -6,6 +6,6 @@ public class UnableToParseInputException : Exception {
 }
 
 public interface ISolver {
-  abstract int SolvePart1();
-  abstract int SolvePart2();
+  abstract ISolution SolvePart1();
+  abstract ISolution SolvePart2();
 }

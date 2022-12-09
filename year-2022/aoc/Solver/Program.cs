@@ -42,8 +42,8 @@ public class Program {
     var solver = Program.GetSolver(day, inputFile);
     if (solver == null) return 1;
 
-    Console.WriteLine($"Solution for part 1: {solver.SolvePart1()}");
-    Console.WriteLine($"Solution for part 2: {solver.SolvePart2()}");
+    Console.WriteLine($"Solution for part 1: {solver.SolvePart1().GetString()}");
+    Console.WriteLine($"Solution for part 2: {solver.SolvePart2().GetString()}");
     return 0;
   }
 }
