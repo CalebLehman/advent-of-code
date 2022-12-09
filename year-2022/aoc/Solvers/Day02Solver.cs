@@ -1,7 +1,7 @@
 namespace Solvers;
 
-public class UnableToParseMoveException : Exception {
-  public UnableToParseMoveException(Char symbol) : base($"Unable to parse {symbol}") {}
+public class UnableToParseRPSException : Exception {
+  public UnableToParseRPSException(Char symbol) : base($"Unable to parse {symbol}") {}
 }
 
 public enum RPS {
@@ -67,14 +67,14 @@ public class Day02Solver : ISolver {
           case 'A': stimulus = RPS.Rock; break;
           case 'B': stimulus = RPS.Paper; break;
           case 'C': stimulus = RPS.Scissors; break;
-          default: throw new UnableToParseMoveException(line[0]);
+          default: throw new UnableToParseRPSException(line[0]);
         }
         RPS response;
         switch (line[2]) {
           case 'X': response = RPS.Rock; break;
           case 'Y': response = RPS.Paper; break;
           case 'Z': response = RPS.Scissors; break;
-          default: throw new UnableToParseMoveException(line[2]);
+          default: throw new UnableToParseRPSException(line[2]);
         }
         rounds.Add(new RPSRound(stimulus, response));
       }
@@ -93,14 +93,14 @@ public class Day02Solver : ISolver {
           case 'A': stimulus = RPS.Rock; break;
           case 'B': stimulus = RPS.Paper; break;
           case 'C': stimulus = RPS.Scissors; break;
-          default: throw new UnableToParseMoveException(line[0]);
+          default: throw new UnableToParseRPSException(line[0]);
         }
         RPS response;
         switch (line[2]) {
           case 'X': response = stimulus.GetWorse(); break;
           case 'Y': response = stimulus; break;
           case 'Z': response = stimulus.GetBetter(); break;
-          default: throw new UnableToParseMoveException(line[2]);
+          default: throw new UnableToParseRPSException(line[2]);
         }
         rounds.Add(new RPSRound(stimulus, response));
       }
