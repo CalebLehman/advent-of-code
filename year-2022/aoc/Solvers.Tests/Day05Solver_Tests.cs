@@ -9,17 +9,19 @@ using Solver = Day05Solver;
 public class Day05Solver_Tests {
   static private String dataDirectory = "./Resources/05";
 
-  [Fact]
-  public void IsCorrectOnSample() {
-    var solver = new Solver(Path.Join(dataDirectory, "sample.data"));
-    Assert.Equal(new Solution<String>("CMZ"), solver.SolvePart1());
-    Assert.Equal(new Solution<String>("MCD"), solver.SolvePart2());
+  [Theory]
+  [InlineData("sample.data", "CMZ")]
+  [InlineData("actual.data", "HNSNMTLHQ")]
+  public void IsCorrectPart1(String filename, String expected) {
+    var solver = new Solver(Path.Join(dataDirectory, filename));
+    Assert.Equal(new Solution<String>(expected), solver.SolvePart1());
   }
 
-  [Fact]
-  public void IsCorrectOnActual() {
-    var solver = new Solver(Path.Join(dataDirectory, "actual.data"));
-    Assert.Equal(new Solution<String>("HNSNMTLHQ"), solver.SolvePart1());
-    Assert.Equal(new Solution<String>("RNLFDJMCT"), solver.SolvePart2());
+  [Theory]
+  [InlineData("sample.data", "MCD")]
+  [InlineData("actual.data", "RNLFDJMCT")]
+  public void IsCorrectPart2(String filename, String expected) {
+    var solver = new Solver(Path.Join(dataDirectory, filename));
+    Assert.Equal(new Solution<String>(expected), solver.SolvePart2());
   }
 }
