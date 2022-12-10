@@ -13,4 +13,6 @@ public class Solution<T> : ISolution
   public bool Equals(ISolution? obj) => obj is Solution<T> that && this.Equals(that);
   public override bool Equals(Object? obj) => obj is Solution<T> that && this.Equals(that);
   public override int GetHashCode() => this.solution.GetHashCode();
+
+  public override String ToString() => solution?.ToString() ?? "";
 }
